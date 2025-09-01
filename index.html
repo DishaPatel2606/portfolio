@@ -22,6 +22,37 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <style>
+          /* name-only cards, matching your palette */
+          .portfolio-card.only-name{
+            width:100%; padding:22px 20px; border-radius:10px;
+            background:#ffffff; border:1.5px solid rgba(0,0,0,.08);
+            box-shadow:0 10px 25px rgba(0,0,0,.06);
+            font-weight:700; letter-spacing:.2px;
+            color:#e91e63; /* your pink accent */
+            display:flex; align-items:center; justify-content:center; text-align:center;
+            min-height:110px; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+          }
+          .portfolio-card.only-name:hover{ 
+            transform:translateY(-3px); 
+            box-shadow:0 16px 32px rgba(0,0,0,.12);
+          }
+        
+          /* modal */
+          .work-modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); 
+                      z-index:9999; padding:24px; align-items:center; justify-content:center;}
+          .work-modal-content{background:#fff; width:min(900px, 92vw); border-radius:14px; 
+                              padding:26px 26px 22px; box-shadow:0 24px 60px rgba(0,0,0,.25);}
+          .work-modal-close{background:transparent; border:none; font-size:30px; line-height:1; 
+                            float:right; cursor:pointer; color:#555;}
+          #wm-title{margin:0 0 10px; font-weight:800;}
+          .wm-body{max-height:70vh; overflow:auto;}
+          .wm-body p{margin:0 0 12px;}
+          .wm-body img{width:100%; border-radius:10px; margin:10px 0;}
+          .wm-body .meta{color:#e91e63; font-weight:700; margin-bottom:8px;}
+          .wm-body ul{padding-left:18px; margin:0 0 10px;}
+        </style>
+        
     </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -295,262 +326,54 @@
         
 <!-- Portfolio Start -->
 <div class="portfolio" id="portfolio">
-    <div class="container">
-      <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-        <p>My Portfolio</p>
-        <h2>Work Samples</h2>
-      </div>
-  
-      <div class="row portfolio-container">
-  
-        <!-- CARD TEMPLATE -->
-        <!-- 1) Diabetes EDA Analysis -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.0s">
-          <div class="portfolio-wrap card-equal" 
-               data-title="Diabetes EDA Analysis"
-               data-tags="Python · Pandas · Matplotlib · Seaborn"
-               data-desc="Exploratory analysis on diabetic patient data. Cleaned outliers, engineered features, and visualized risk patterns to inform early-detection insights."
-               data-link1-text="View GitHub"
-               data-link1-href="https://github.com/DishaPatel2606/Python-EDA-Project"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/py.png" alt="Diabetes EDA Analysis">
-            </div>
-            <div class="portfolio-text">
-              <h3>Diabetes EDA Analysis</h3>
-              <p class="subtitle">Python · EDA · Visualization</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 2) Airline Review Dashboard -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.1s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Airline Review Dashboard"
-               data-tags="Tableau · Data Cleaning (Python)"
-               data-desc="End-to-end review of airline service metrics; prepared data in Python and built an interactive Tableau dashboard with maps and Sankey to surface route/service insights."
-               data-link1-text="View Dashboard"
-               data-link1-href="https://public.tableau.com/app/profile/disha.patel8190/viz/BAREVIEW/Dashboard1"
-               data-link2-text="Notes PDF"
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/tb.png" alt="Airline Review Dashboard">
-            </div>
-            <div class="portfolio-text">
-              <h3>Airline Review Dashboard</h3>
-              <p class="subtitle">Tableau · Storytelling</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 3) Agricultural Data Warehouse -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.2s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Agricultural Data Warehouse"
-               data-tags="PostgreSQL · Star Schema · ETL"
-               data-desc="Designed a warehouse with 9 dimensions & 3 facts; built ETL and complex SQL to evaluate performance and support analytics on production, inputs, and weather."
-               data-link1-text="View GitHub"
-               data-link1-href="https://github.com/DishaPatel2606/Agricultural-based-Data-Warehouse"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/da.jpg" alt="Agricultural Data Warehouse">
-            </div>
-            <div class="portfolio-text">
-              <h3>Agricultural Data Warehouse</h3>
-              <p class="subtitle">PostgreSQL · ETL</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 4) Solar Ops Analytics (Case Study) -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.3s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Solar Ops Analytics (Case Study)"
-               data-tags="Power BI · SQL · Snowflake"
-               data-desc="Business-facing analytics for solar operations: KPI design (uptime, cost/clean), unified telemetry + cost data, automated weekly ops scorecards."
-               data-link1-text="One-Pager PDF"
-               data-link1-href="#"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/analytics.jpg" alt="Solar Ops Analytics">
-            </div>
-            <div class="portfolio-text">
-              <h3>Solar Ops Analytics (Case Study)</h3>
-              <p class="subtitle">Power BI · BI Strategy</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 5) Retention & Cohort Analysis (Sample) -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.4s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Retention & Cohort Analysis"
-               data-tags="SQL · Python · Visualization"
-               data-desc="Cohort-based retention model with churn flags and LTV proxy; built to demonstrate customer analytics workflow and storytelling."
-               data-link1-text="View Notebook"
-               data-link1-href="#"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/data-visual.png" alt="Cohort Analysis">
-            </div>
-            <div class="portfolio-text">
-              <h3>Retention & Cohort Analysis</h3>
-              <p class="subtitle">Customer Analytics</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 6) Monte Carlo Portfolio Simulator -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.5s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Monte Carlo Portfolio Simulator"
-               data-tags="Excel · Power Query · Simulation"
-               data-desc="Built a 1,000-scenario Monte Carlo model to quantify retirement portfolio variability; supports risk-aware recommendations."
-               data-link1-text="Demo Sheet"
-               data-link1-href="#"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/excel.png" alt="Monte Carlo Simulator">
-            </div>
-            <div class="portfolio-text">
-              <h3>Monte Carlo Portfolio Simulator</h3>
-              <p class="subtitle">Finance Analytics</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 7) Supply Chain Scenario Analysis -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.6s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Supply Chain Scenario Analysis"
-               data-tags="Case Study · Ops Analytics"
-               data-desc="Mapped disruption scenarios and proposed mitigation (supplier diversification, buffer capacity); quantified potential cost savings."
-               data-link1-text="Slide Deck"
-               data-link1-href="#"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/supplychain.jpg" alt="Supply Chain Analysis">
-            </div>
-            <div class="portfolio-text">
-              <h3>Supply Chain Scenario Analysis</h3>
-              <p class="subtitle">Ops · Strategy</p>
-            </div>
-          </div>
-        </div>
-  
-        <!-- 8) Airline Review – Methods Note -->
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.7s">
-          <div class="portfolio-wrap card-equal"
-               data-title="Airline Review Methods Note"
-               data-tags="Data Cleaning · Feature Design"
-               data-desc="Short write-up on the cleaning pipeline, feature choices, and visualization decisions used in the Airline project."
-               data-link1-text="Read Note"
-               data-link1-href="#"
-               data-link2-text=""
-               data-link2-href="">
-            <div class="portfolio-img fixed-ratio">
-              <img src="img/methods.png" alt="Methods Note">
-            </div>
-            <div class="portfolio-text">
-              <h3>Airline Review Methods Note</h3>
-              <p class="subtitle">Documentation</p>
-            </div>
-          </div>
-        </div>
-  
-      </div>
+  <div class="container">
+    <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+      <p>My Portfolio</p>
+      <h2>Work Samples</h2>
     </div>
-  
-    <!-- Modal (single reusable) -->
-    <div id="workModal" class="work-modal">
-      <div class="work-modal-content">
-        <span class="work-modal-close">&times;</span>
-        <h3 id="wm-title"></h3>
-        <p id="wm-tags" class="wm-tags"></p>
-        <p id="wm-desc"></p>
-        <div id="wm-links" class="wm-links"></div>
+
+    <div class="row portfolio-container">
+
+      <!-- CARD = name only (NO IMAGE) -->
+      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.0s">
+        <button class="portfolio-card only-name" 
+                data-title="Airline Review Dashboard"
+                data-template="#tpl-airline">
+          Airline Review Dashboard
+        </button>
       </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.1s">
+        <button class="portfolio-card only-name" 
+                data-title="Agricultural Data Warehouse"
+                data-template="#tpl-agri">
+          Agricultural Data Warehouse
+        </button>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item wow fadeInUp" data-wow-delay="0.2s">
+        <button class="portfolio-card only-name" 
+                data-title="Diabetes EDA & Health Insights"
+                data-template="#tpl-diabetes">
+          Diabetes EDA & Health Insights
+        </button>
+      </div>
+
+      <!-- duplicate the block above for 7–8 total items -->
     </div>
   </div>
-  <!-- Portfolio End -->
-  
-  <!-- Minimal styles to normalize card sizes & modal -->
-  <style>
-    /* uniform card height */
-    .card-equal {display:flex; flex-direction:column; height:100%;}
-    .portfolio-text {padding:16px; display:flex; flex-direction:column; gap:4px;}
-    .portfolio-text .subtitle {margin:0; opacity:.8; font-size:0.95rem;}
-  
-    /* fixed image aspect ratio (keeps all thumbnails same size) */
-    .fixed-ratio {position:relative; width:100%; aspect-ratio: 16 / 9; overflow:hidden; border-radius:8px;}
-    .fixed-ratio img {position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  
-    /* modal */
-    .work-modal {display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:9999; align-items:center; justify-content:center; padding:20px;}
-    .work-modal-content {background:#fff; max-width:760px; width:100%; border-radius:12px; padding:24px; box-shadow:0 20px 60px rgba(0,0,0,.25);}
-    .work-modal-close {float:right; font-size:28px; cursor:pointer;}
-    .wm-tags {font-weight:600; color:#e91e63; margin-top:8px;}
-    .wm-links a {display:inline-block; margin-right:12px; margin-top:12px; padding:10px 14px; border-radius:8px; background:#e91e63; color:#fff; text-decoration:none;}
-    .wm-links a:hover {opacity:.9;}
-  </style>
-  
-  <script>
-    // modal wiring
-    (function(){
-      const cards = document.querySelectorAll('.portfolio-wrap.card-equal');
-      const modal = document.getElementById('workModal');
-      const close = modal.querySelector('.work-modal-close');
-      const title = document.getElementById('wm-title');
-      const tags  = document.getElementById('wm-tags');
-      const desc  = document.getElementById('wm-desc');
-      const links = document.getElementById('wm-links');
-  
-      cards.forEach(card=>{
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', ()=>{
-          title.textContent = card.dataset.title || '';
-          tags.textContent  = card.dataset.tags || '';
-          desc.textContent  = card.dataset.desc || '';
-          links.innerHTML   = '';
-  
-          if (card.dataset.link1Text && card.dataset.link1Href) {
-            const a1 = document.createElement('a');
-            a1.textContent = card.dataset.link1Text;
-            a1.href = card.dataset.link1Href;
-            a1.target = '_blank';
-            links.appendChild(a1);
-          }
-          if (card.dataset.link2Text && card.dataset.link2Href) {
-            const a2 = document.createElement('a');
-            a2.textContent = card.dataset.link2Text;
-            a2.href = card.dataset.link2Href;
-            a2.target = '_blank';
-            links.appendChild(a2);
-          }
-  
-          modal.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        });
-      });
-  
-      close.addEventListener('click', ()=>{
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-      });
-      modal.addEventListener('click', (e)=>{
-        if (e.target === modal) {
-          modal.style.display = 'none';
-          document.body.style.overflow = '';
-        }
-      });
-    })();
-  </script>
+
+  <!-- Big write-up modal (single reusable) -->
+  <div id="workModal" class="work-modal" role="dialog" aria-modal="true" aria-labelledby="wm-title">
+    <div class="work-modal-content">
+      <button class="work-modal-close" aria-label="Close">&times;</button>
+      <h3 id="wm-title"></h3>
+      <div id="wm-body" class="wm-body"></div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio End -->
+
           <!-- Testimonial Start -->
         <div class="testimonial wow fadeInUp" data-wow-delay="0.1s" id="Portfolio">
             <div class="container">
@@ -635,5 +458,78 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script>
+          (function(){
+            const modal   = document.getElementById('workModal');
+            const titleEl = document.getElementById('wm-title');
+            const bodyEl  = document.getElementById('wm-body');
+            const closeEl = document.querySelector('.work-modal-close');
+          
+            document.querySelectorAll('.portfolio-card.only-name').forEach(btn=>{
+              btn.addEventListener('click', ()=>{
+                const tplSel = btn.dataset.template;
+                const tpl    = document.querySelector(tplSel);
+                titleEl.textContent = btn.dataset.title || 'Work Sample';
+                bodyEl.innerHTML = '';
+                if (tpl && 'content' in document.createElement('template')) {
+                  bodyEl.appendChild(tpl.content.cloneNode(true));
+                } else {
+                  bodyEl.innerHTML = '<p>Details coming soon.</p>';
+                }
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+              });
+            });
+          
+            function closeModal(){
+              modal.style.display = 'none';
+              document.body.style.overflow = '';
+            }
+            closeEl.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+          })();
+          </script>
+<!-- TEMPLATE: Airline -->
+<template id="tpl-airline">
+  <p class="meta">Tableau · Python (cleaning) · Storytelling</p>
+  <p><strong>Overview.</strong> I reviewed airline service performance end-to-end. I cleaned route/review data in Python (Pandas), standardized categories, engineered features (route class, delay buckets), and published an interactive Tableau story.</p>
+  <p><strong>What I built.</strong> Multi-page dashboard with a route map, a Sankey for flow, issue analysis, satisfaction by route/class, and filters for month and cabin.</p>
+  <ul>
+    <li>Reduced dirty/missing fields by 78% through custom cleaning functions.</li>
+    <li>Designed clear KPIs: on-time %, cancellations, NPS proxy.</li>
+    <li>Wrote a short methods note to explain data choices and limitations.</li>
+  </ul>
+  <p><strong>Outcome.</strong> A concise, defensible view of service bottlenecks and route-level opportunities.</p>
+  <!-- optional proof image -->
+  <!-- <img src="img/airline-proof.png" alt="Airline dashboard proof"> -->
+</template>
+
+<!-- TEMPLATE: Agricultural Data Warehouse -->
+<template id="tpl-agri">
+  <p class="meta">PostgreSQL · Star Schema · ETL</p>
+  <p><strong>Overview.</strong> I designed a warehouse for agricultural analytics with 9 dimensions and 3 fact tables (production, inputs, weather). The goal was fast ad-hoc queries and clean conformed dimensions.</p>
+  <p><strong>What I did.</strong> Wrote ETL scripts, enforced keys, and measured query latency versus a non-star model. Added derived attributes (season, region tier).</p>
+  <ul>
+    <li>Cut heavy query times by ~42% vs. raw relational source.</li>
+    <li>Documented naming, SCD handling, and data quality checks.</li>
+  </ul>
+  <p><strong>Outcome.</strong> A scalable base for BI that supports complex joins and rollups without fragile SQL.</p>
+  <!-- <img src="img/agri-proof.png" alt="Schema proof"> -->
+</template>
+
+<!-- TEMPLATE: Diabetes EDA -->
+<template id="tpl-diabetes">
+  <p class="meta">Python · Pandas · Matplotlib/Seaborn</p>
+  <p><strong>Overview.</strong> EDA on a diabetes dataset to surface early-risk signals and correlations across glucose, BMI, and age.</p>
+  <p><strong>What I did.</strong> Outlier handling, bias checks, correlation heatmaps, and feature exploration with distribution plots and cohort cuts.</p>
+  <ul>
+    <li>Built a repeatable cleaning notebook; flagged data limitations transparently.</li>
+    <li>Delivered a compact report for non-technical readers.</li>
+  </ul>
+  <p><strong>Outcome.</strong> Clear insight pack that can seed modeling or screening policy discussions.</p>
+  <!-- <img src="img/diabetes-proof.png" alt="EDA proof"> -->
+</template>
+          
     </body>
 </html>
